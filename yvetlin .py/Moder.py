@@ -53,8 +53,6 @@ embed2.add_field(name="/aban [member] [reason]", value="перманентная
 embed2.add_field(name="/kick [member] [reason]", value="исключение пользователя с сервера (A)")
 embed2.add_field(name="/addpass [member]", value="выдача админ-прав на сервере (A)\nтак же добавляется автоматически в реестр уровня администратор\n")
 embed2.add_field(name="/depass [member]", value="изъятие прав админа на сервере (А)\nтак же удаляется из реестра уровня администратор и в дальнейшем не добавляется\n")
-embed2.add_field(name="/pasha", value="пуш Паши, впоследствии вы можете выбить \"- натс\"!\n")
-embed2.add_field(name="/ping [member]", value="тип любого пользователя на сервере\n")
 embed2.set_image(url="https://cdn.fishki.net/upload/post/2021/07/09/3833029/06d12d9929ffb2e0044dbf8b3f23b7cd.jpg")
 embed2.set_footer(text="Copyright by yvetlin.", icon_url="https://slate.dan.onl/slate.png")
 
@@ -304,12 +302,12 @@ async def ticket(ctx, text):
         channel = await ctx.user.create_dm()
         await channel.send(f"{time_string}, Author: <@{ctx.author.id}> \n Ticket: {text}")
     with open('tickets.txt', 'a') as log:
-        log.write(f"{time_string} <@{ctx.author.id}> take ticket {user.name}: {text}\n")
+        log.write(f"{time_string} <@{ctx.author.id}> take ticket TWITCH {user.name}: {text}\n")
     channel2 = await ctx.author.create_dm()
     await channel2.send(f"Спасибо за обращение! Ваш запрос отправлен разработчику, ожидайте!")
 
 @bot.slash_command()
 async def rick(ctx):
-    await ctx.send(f"{embed4}, \n twitch")
+    await ctx.send(embed=embed4)
 
 bot.run('') #token: KEEP THIS SAFE, from your developer portal
